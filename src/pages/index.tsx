@@ -38,7 +38,7 @@ export default function Home() {
 
     return (
         <div className="flex justify-center items-center h-screen">
-            <div className="w-1/4 p-4 bg-white rounded shadow-lg">
+            <div className="lg:w-1/4 sm:w-1/2 w-5/6 p-4 bg-white rounded shadow-lg">
                 <ul className="mb-4">
                     <li className="flex justify-between items-center">
                         <CustomCheck changeEvent={(event: ChangeEvent) => selectAll(event)} labelText="All pages"
