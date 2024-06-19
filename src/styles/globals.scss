@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  font-weight: 400;
+}
+
+.custom-checkbox {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #fff;
+  border: 1px solid #d1d5db; /* Tailwind's gray-300 */
+  border-radius: 0.25rem; /* Tailwind's rounded */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background-color 0.2s, border-color 0.2s;
+
+  &:hover {
+    border-color: #a3bffa;
+
+    &::after {
+      background-image: url('/img/tick-black.svg');
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    right: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &:active {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+  }
+
+  &:checked {
+    background-color: #5087F8;
+    border-color: #5087F8;
+
+    &:hover {
+      background-color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    &:active {
+      background-color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    &::after {
+      background-image: url('/img/tick-white.svg');
+    }
+  }
+
+  &.not-all-checked {
+    &:checked {
+      background-color: inherit;
+      border-color: inherit;
+
+      &:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+
+        &:after {
+          background-image: url('/img/tick-white.svg');
+        }
+      }
+
+      &::after {
+        background-image: url('/img/tick-black.svg');
+      }
+    }
+
+    &.disabled {
+      &:checked {
+        background-color: inherit;
+        border-color: inherit;
+      }
+    }
+  }
+
+  &.disabled {
+    &:checked {
+      background-color: #5087F8;
+      border-color: #5087F8;
+    }
+  }
+}
